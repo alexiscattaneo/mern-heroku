@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 const URI = process.env.MONGODB_URI 
 ? process.env.MONGODB_URI
 :'0.0.0.0';
-  
+
+console.log(process.env.BACKEND);
+
 mongoose.connect(URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

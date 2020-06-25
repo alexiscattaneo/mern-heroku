@@ -16,13 +16,13 @@ export default class CreateNote extends Component {
     }
 
     async componentDidMount(){
-        const res = await axios.get('https://cryptic-fortress-49132.herokuapp.com/api/users');
+        const res = await axios.get('https://cattaneo-mern-notes.herokuapp.com/api/users');
         this.setState({
             users: res.data.map(user => user.username),
             userSelected: res.data[0].username
         });
         if(this.props.match.params.id){
-            const res = await axios.get('https://cryptic-fortress-49132.herokuapp.com/api/notes/'+this.props.match.params.id);
+            const res = await axios.get('https://cattaneo-mern-notes.herokuapp.com/api/notes/'+this.props.match.params.id);
             this.setState({
                title:res.data.title,
                content:res.data.content,
@@ -44,9 +44,9 @@ export default class CreateNote extends Component {
             date: this.state.date
         };
         if(this.state.editing){
-            await axios.put('https://cryptic-fortress-49132.herokuapp.com/api/notes/'+this.state._id, newNote);
+            await axios.put('https://cattaneo-mern-notes.herokuapp.com/api/notes/'+this.state._id, newNote);
         }else{            
-            await axios.post('https://cryptic-fortress-49132.herokuapp.com/api/notes', newNote);
+            await axios.post('https://cattaneo-mern-notes.herokuapp.com/api/notes', newNote);
         }
         console.log(this.state);
         window.location.href = '/';

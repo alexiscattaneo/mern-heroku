@@ -9,7 +9,7 @@ export default class CreateUser extends Component {
     }
 
     getUsers = async () => {
-        const res = await axios.get('https://cryptic-fortress-49132.herokuapp.com/api/users');
+        const res = await axios.get('https://cattaneo-mern-notes.herokuapp.com/api/users');
         this.setState({users: res.data});
     }
 
@@ -26,7 +26,7 @@ export default class CreateUser extends Component {
 
     onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post('https://cryptic-fortress-49132.herokuapp.com/api/users', {
+        await axios.post('https://cattaneo-mern-notes.herokuapp.com/api/users', {
             username: this.state.username
         });
         this.setState({username: ''});
@@ -34,7 +34,7 @@ export default class CreateUser extends Component {
     }
 
     deleteUser = async (id) => {
-        await axios.delete('https://cryptic-fortress-49132.herokuapp.com/api/users/' + id);
+        await axios.delete('https://cattaneo-mern-notes.herokuapp.com/api/users/' + id);
         this.getUsers();
     }
 

@@ -10,7 +10,7 @@ export default class NotesList extends Component {
     }
 
     getNotes = async () => {
-        const res = await axios.get('https://cryptic-fortress-49132.herokuapp.com/api/notes');
+        const res = await axios.get('https://cattaneo-mern-notes.herokuapp.com/api/notes');
         this.setState({notes: res.data});
     }
 
@@ -19,7 +19,7 @@ export default class NotesList extends Component {
     }
 
     deleteNote = async (id) => {
-        await axios.delete('https://cryptic-fortress-49132.herokuapp.com/api/notes/' + id);
+        await axios.delete('https://cattaneo-mern-notes.herokuapp.com/api/notes/' + id);
         this.getNotes();
     }
 
